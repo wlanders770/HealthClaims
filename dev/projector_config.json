@@ -1,10 +1,10 @@
 {
   "embeddings": [
     {
-      "tensorName": "KJV tensor",
+      "tensorName": "HealthClaims Tensors",
       "tensorShape": [
-        31102,
-        128
+        500,
+        15
       ],
       "tensorPath": "https://media.githubusercontent.com/media/wlanders770/HealthClaims/refs/heads/main/vectors.tsv",
       "metadataPath": "https://media.githubusercontent.com/media/wlanders770/HealthClaims/refs/heads/main/metadata.tsv"

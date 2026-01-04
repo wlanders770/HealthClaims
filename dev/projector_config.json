@@ -6,8 +6,8 @@
         500,
         768
       ],
-      "tensorPath": "https://raw.githubusercontent.com/wlanders770/HealthClaims/refs/heads/main/dev/vectors.tsv",
-      "metadataPath": "https://raw.githubusercontent.com/wlanders770/HealthClaims/refs/heads/main/dev/metadata.tsv"
+      "tensorPath": "https://raw.githubusercontent.com/wlanders770/HealthClaims/main/dev/vectors.tsv",
+      "metadataPath": "https://raw.githubusercontent.com/wlanders770/HealthClaims/main/dev/metadata.tsv"
     }
   ]
 }

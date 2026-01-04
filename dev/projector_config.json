@@ -3,8 +3,8 @@
     {
       "tensorName": "HealthClaims",
       "tensorShape": [500, 768],
-      "tensorPath": "https://raw.githubusercontent.com/wlanders770/HealthClaims/main/vectors.tsv",
-      "metadataPath": "https://raw.githubusercontent.com/wlanders770/HealthClaims/main/metadata.tsv"
+      "tensorPath": "https://raw.githubusercontent.com/wlanders770/HealthClaims/main/dev/vectors.tsv",
+      "metadataPath": "https://raw.githubusercontent.com/wlanders770/HealthClaims/main/dev/metadata.tsv"
     }
   ]
 }

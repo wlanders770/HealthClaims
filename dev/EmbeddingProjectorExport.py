@@ -45,7 +45,6 @@ def export_for_projector():
         # 4. Export Vectors TSV
         with open('vectors.tsv', 'w', encoding='utf-8', newline='') as f:
             writer = csv.writer(f, delimiter='\t')
-            writer.writerow(['Vector_Data'])
             for vector in embeddings:
                 writer.writerow(vector)
         

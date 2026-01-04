@@ -1,0 +1,5 @@
+chroma_data/
+dev/chroma_data/
+dev/venv/
+venv/
+embeddings_test

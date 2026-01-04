@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: always
+    networks:
+      - ai_mesh
+    ports:
+      - "3000:8080"
+    environment:
+      - 'OLLAMA_BASE_URL=http://ollama:11434'
+      # RAG & Chroma Configuration
+      - 'VECTOR_DB=chroma'
+      - 'CHROMA_HTTP_HOST=chroma'
+      - 'CHROMA_HTTP_PORT=8000'
+      # Set the default collection so Open WebUI knows where to look
+      - 'CHROMA_TENANT=default_tenant'
+      - 'CHROMA_DATABASE=default_database'
+      # Ensure config is managed by this file, not the UI database
+      - 'ENABLE_PERSISTENT_CONFIG=False'
+    volumes:
+      - open-webui-local:/app/backend/data
+      - ~/AI/HealthClaims/dev/docs:/app/backend/data/docs
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    networks:
+      - ai_mesh
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-local:/root/.ollama
+
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: chroma
+    restart: always
+    networks:
+      - ai_mesh
+    environment:
+      - IS_PERSISTENT=TRUE
+      - PERSIST_DIRECTORY=/data  # Force the internal path
+      - ALLOW_RESET=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    ports:
+      - "8000:8000"
+    volumes:
+      # Map your Fedora folder to that EXACT forced path
+      - ./dev/chroma_data:/data:Z
+
+networks:
+  ai_mesh:
+    external: true  # Since you mentioned you created this previously
+
+volumes:
+  ollama-local:
+  open-webui-local:
